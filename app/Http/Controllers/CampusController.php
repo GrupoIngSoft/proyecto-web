@@ -3,7 +3,8 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Campus;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use Request;
 
 class CampusController extends Controller {
 
@@ -12,6 +13,8 @@ class CampusController extends Controller {
 	 *
 	 * @return Response
 	 */
+
+
 	public function index()
 	{
 		$campus = Campus::all(); // Cambiar esto, si la db es muy grande queda la escoba
