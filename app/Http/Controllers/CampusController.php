@@ -76,7 +76,7 @@ class CampusController extends Controller {
 		$campus = Campus::findOrFail($id);
 		$campus->fill(Request::all());	
 		$campus->save();
-		return redirect()->back();
+		return redirect()->route('campus.index');
 	}
 
 	/**

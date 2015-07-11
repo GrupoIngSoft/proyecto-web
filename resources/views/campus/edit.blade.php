@@ -10,8 +10,8 @@
 				<div class="panel-body">
 					<table class="table table-striped">
 						{!! Form::model($campus, ['route'=>['campus.update', $campus->id], 'method'=>'PUT']) !!}
-						@include(campus.partials.campos)
-						  <button type="submit" class="btn btn-default">Actualizar Campus</button>
+						@include('campus.partials.campos')
+						  <button type="submit" class="btn btn-info">Actualizar Campus</button>
 						{!! Form::close() !!}
 				</div>
 			</div>
