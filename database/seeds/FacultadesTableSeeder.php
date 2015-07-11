@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Models\Facultad;
 
-class CampusTableSeeder extends Seeder {
+class FacultadesTableSeeder extends Seeder {
 
     public function run()
     {

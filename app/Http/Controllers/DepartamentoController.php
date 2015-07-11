@@ -2,11 +2,10 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Routing\Redirector;
-use App\Models\Campus;
 
-class CampusController extends Controller {
+use Illuminate\Http\Request;
+
+class DepartamentoController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,8 +14,7 @@ class CampusController extends Controller {
 	 */
 	public function index()
 	{
-		$campus = Campus::paginate();
-		return view('campus.index', compact('campus'));
+		//
 	}
 
 	/**
@@ -26,20 +24,17 @@ class CampusController extends Controller {
 	 */
 	public function create()
 	{
-		return view('campus.create');
+		//
 	}
 
 	/**
 	 * Store a newly created resource in storage.
-	 * 
+	 *
 	 * @return Response
 	 */
 	public function store()
 	{
-		$campus = Campus::create(Request::all());
-		$campus->save();
-
-		return redirect()->route('campus.index');
+		//
 	}
 
 	/**
@@ -61,8 +56,7 @@ class CampusController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$campus = Campus::findOrFail($id);
-		return view('campus.edit', compact('campus'));
+		//
 	}
 
 	/**
@@ -73,10 +67,7 @@ class CampusController extends Controller {
 	 */
 	public function update($id)
 	{
-		$campus = Campus::findOrFail($id);
-		$campus->fill(Request::all());	
-		$campus->save();
-		return redirect()->back();
+		//
 	}
 
 	/**

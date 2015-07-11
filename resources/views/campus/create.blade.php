@@ -1,21 +1,21 @@
-<html>
-<body>
-<p>Formulario creacion campus</p>
+@extends('app')
 
-{!! Form::open(['route' => 'campus.store']) !!}
-	{!! Form::label('Nombre') !!}
-	{!! Form::text('nombre') !!}
-	{!! Form::label('Direccion') !!}
-	{!! Form::text('direccion') !!}
-	{!! Form::label('Latitud') !!}
-	{!! Form::text('latitud') !!}
-	{!! Form::label('longitud') !!}
-	{!! Form::text('longitud') !!}
-	{!! Form::label('Descripcion') !!}
-        {!! Form::textarea('descripcion') !!}
-	{!! Form::label('Rut Encargado') !!}
-	{!! Form::text('rut_encargado') !!}
-	{!! Form::submit() !!}
-{!! Form::close() !!}
-</body>
-</html>
+@section('content')
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="panel panel-default">
+				<div class="panel-heading">Nuevo Campus</div>
+
+				<div class="panel-body">
+					<table class="table table-striped">
+						{!! Form::open(['route'=>'campus.store', 'method'=>'POST']) !!}
+						@include('campus.partials.campos')
+						  <button type="submit" class="btn btn-info">Crear</button>
+						{!! Form::close() !!}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+@endsection

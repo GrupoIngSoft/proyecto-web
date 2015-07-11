@@ -1,19 +1,21 @@
-<html>
+@extends('app')
 
-{!! Form::open(array('route' => array('campus.update', $campus->id), 'method' => 'put')) !!}
-{!! Form::label('Nombre') !!}
-        {!! Form::text('nombre', $campus->nombre) !!}
-        {!! Form::label('Direccion') !!}
-        {!! Form::text('direccion', $campus->direccion) !!}
-        {!! Form::label('Latitud') !!}
-        {!! Form::text('latitud', $campus->latitud) !!}
-        {!! Form::label('longitud') !!}
-        {!! Form::text('longitud', $campus->longitud) !!}
-        {!! Form::label('Descripcion') !!}
-        {!! Form::textarea('descripcion', $campus->descripcion) !!}
-        {!! Form::label('Rut Encargado') !!}
-        {!! Form::text('rut_encargado', $campus->rut_encargado) !!}
-        {!! Form::submit() !!}
-{!! Form::close() !!}
+@section('content')
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="panel panel-default">
+				<div class="panel-heading">Editar Campus</div>
 
-</html>
+				<div class="panel-body">
+					<table class="table table-striped">
+						{!! Form::model($campus, ['route'=>['campus.update', $campus->id], 'method'=>'PUT']) !!}
+						@include(campus.partials.campos)
+						  <button type="submit" class="btn btn-default">Actualizar Campus</button>
+						{!! Form::close() !!}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+@endsection
