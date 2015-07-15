@@ -1,6 +1,7 @@
 @extends('app')
 
 @section('content')
+@include('menu')
 <div class="container">
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
@@ -15,6 +16,7 @@
 						{!! Form::close() !!}
 				</div>
 			</div>
+			@include('campus.partials.delete')
 		</div>
 	</div>
 </div>

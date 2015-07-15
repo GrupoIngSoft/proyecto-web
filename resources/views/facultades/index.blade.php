@@ -6,17 +6,17 @@
 	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
 			<div class="panel panel-default">
-				<div class="panel-heading">Campus</div>
+				<div class="panel-heading">Facultades</div>
 				@if(Session::has('message'))
 					<p class="alert alert-success">{{ Session::get('message') }} </p>
 				@endif
 				<p>
-					<a class="btn btn-info" href="{{ route('campus.create') }}" role="button">
-						Nuevo Campus
+					<a class="btn btn-info" href="{{ route('facultades.create') }}" role="button">
+						Nueva Facultad
 					</a>
 				</p>
 				<div class="panel-body">
-					@include('campus.partials.tablas')
+					@include('facultades.partials.tablas')
 					
 				</div>
 			</div>

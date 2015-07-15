@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Redirector;
 use App\Models\Campus;
+use Illuminate\Support\Facades\Session;
 
 class CampusController extends Controller {
 
@@ -87,7 +88,11 @@ class CampusController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$campus = Campus::findOrFail($id);
+		$campus->delete();
+		$message=$campus->nombre . ' fue eliminado del registro';
+		Session::flash('message', $message);
+		return redirect()->route('campus.index');
 	}
 
 }

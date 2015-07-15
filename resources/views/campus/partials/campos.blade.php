@@ -16,7 +16,7 @@
 						  </div>
 						   <div class="form-group">
 						    {!! Form::label('descripcion','Descripción') !!}
-						    {!! Form::text('descripcion', null, ['class'=>'form-control', 'placeholder'=>'Introduzca una Descripción']) !!}
+						    {!! Form::textarea('descripcion', null, ['class'=>'form-control', 'placeholder'=>'Introduzca una Descripción']) !!}
 						  </div>
 						   <div class="form-group">
 						    {!! Form::label('rut_encargado','Rut Encargado de Campus') !!}

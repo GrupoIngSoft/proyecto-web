@@ -2,8 +2,10 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
+use App\Models\Facultad;
+use App\Models\Campus;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Routing\Redirector;
 
 class FacultadesController extends Controller {
 
@@ -14,7 +16,8 @@ class FacultadesController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$facultad = Facultad::paginate();
+		return view('facultades.index', compact('facultad'));
 	}
 
 	/**
@@ -24,7 +27,9 @@ class FacultadesController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$campus = Campus::lists('nombre','id');
+		return view('facultades.create')
+				->with('campus',$campus);
 	}
 
 	/**
@@ -34,7 +39,10 @@ class FacultadesController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$facultad = Facultad::create(Request::all());
+		$facultad->save();
+
+		return redirect()->route('facultades.index');
 	}
 
 	/**
@@ -56,7 +64,8 @@ class FacultadesController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$facultad = Facultad::findOrFail($id);
+		return view('facultades.edit', compact('facultad'));
 	}
 
 	/**
@@ -67,7 +76,10 @@ class FacultadesController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$facultad = Facultad::findOrFail($id);
+		$facultad->fill(Request::all());	
+		$facultad->save();
+		return redirect()->route('facultades.index');
 	}
 
 	/**
@@ -78,7 +90,11 @@ class FacultadesController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$facultad = Facultad::findOrFail($id);
+		$facultad->delete();
+		$message=$facultad->nombre . ' fue eliminado del registro';
+		Session::flash('message', $message);
+		return redirect()->route('facultades.index');
 	}
 
 }
