@@ -64,8 +64,10 @@ class FacultadesController extends Controller {
 	 */
 	public function edit($id)
 	{
+		$campus = Campus::lists('nombre','id');
 		$facultad = Facultad::findOrFail($id);
-		return view('facultades.edit', compact('facultad'));
+		return view('facultades.edit', compact('facultad'))
+				->with('campus',$campus);
 	}
 
 	/**

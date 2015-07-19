@@ -3,12 +3,14 @@
 							<th>#</th>
 							<th>Nombre</th>
 							<th>Campus Perteneciente</th>
+							<th>Descripción</th>
 							<th>Acciones</th>
 						</tr>
 						@foreach($facultad as $facultad)
 							<td>{{ $facultad->id }}</td>
 							<td>{{ $facultad->nombre }}</td>
-							<td></td>
+							<td>{{ $facultad->campus->nombre }}</td>
+							<td>{{ $facultad->descripcion }}</td>
 							<td>
 								<a href="{{ route('facultades.edit', $facultad->id) }}">Editar</a>
 							</td>

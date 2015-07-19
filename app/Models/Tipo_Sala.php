@@ -9,7 +9,7 @@ class Tipo_Sala extends Model {
 
     public function salas()
     {
-        return $this->hasMany('Sala');
+        return $this->hasMany('App\Models\Sala');
     }
 
 }

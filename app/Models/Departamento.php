@@ -5,26 +5,26 @@ use Illuminate\Database\Eloquent\Model;
 class Departamento extends Model {
 
     protected $table = 'departamentos';
-    protected $fillable = ['nombre', 'descripcion'];
+    protected $fillable = ['nombre', 'facultad_id', 'descripcion'];
 
     public function facultades()
     {
-        return $this->belongsTo('Facultad');
+        return $this->belongsTo('App\Models\Facultad');
     }
     public function docentes()
     {
-        return $this->hasMany('Docente');
+        return $this->hasMany('App\Models\Docente');
     }
     public function escuelas()
     {
-        return $this->hasMany('Escuela');
+        return $this->hasMany('App\Models\Escuela');
     }
     public function funcionarios()
     {
-        return $this->hasMany('Funcionario');
+        return $this->hasMany('App\Models\Funcionario');
     }
     public function asignaturas()
     {
-        return $this->hasMany('Asignatura');
+        return $this->hasMany('App\Models\Asignatura');
     }
 }

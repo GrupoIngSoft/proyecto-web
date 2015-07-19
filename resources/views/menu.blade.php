@@ -6,7 +6,7 @@
 							  <li><a href="#">Inicio</a></li>
 							  <li><a href="{{ route('campus.index') }}">Campus</a></li>
 							  <li><a href="{{ route('facultades.index') }}">Facultades</a></li>
-							  <li><a href="">Departamentos</a></li>
+							  <li><a href="{{ route('departamento.index') }}">Departamentos</a></li>
 							</ul>
 					</div>
 				</div>

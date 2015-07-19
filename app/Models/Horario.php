@@ -9,15 +9,15 @@ class Horario extends Model {
 
     public function periodos()
     {
-        return $this->belongsTo('Periodo');
+        return $this->belongsTo('App\Models\Periodo');
     }
     public function cursos()
     {
-        return $this->belongsTo('Curso');
+        return $this->belongsTo('App\Models\Curso');
     }
     public function salas()
     {
-        return $this->belongsTo('Sala');
+        return $this->belongsTo('App\Models\Sala');
     }
 
 }

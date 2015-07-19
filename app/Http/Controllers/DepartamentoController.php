@@ -2,8 +2,11 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Departamento;
+use App\Models\Facultad;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Routing\Redirector;
 
-use Illuminate\Http\Request;
 
 class DepartamentoController extends Controller {
 
@@ -14,7 +17,8 @@ class DepartamentoController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$departamento = Departamento::paginate();
+		return view('departamento.index', compact('departamento'));
 	}
 
 	/**
@@ -24,7 +28,9 @@ class DepartamentoController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$facultad = Facultad::lists('nombre','id');
+		return view('departamento.create')
+				->with('facultad',$facultad);
 	}
 
 	/**
@@ -34,7 +40,10 @@ class DepartamentoController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$departamento = Departamento::create(Request::all());
+		$departamento->save();
+
+		return redirect()->route('departamento.index');
 	}
 
 	/**
@@ -56,7 +65,10 @@ class DepartamentoController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$facultad = Facultad::lists('nombre','id');
+		$departamento = Departamento::findOrFail($id);
+		return view('departamento.edit', compact('departamento'))
+				->with('facultad',$facultad);
 	}
 
 	/**
@@ -67,7 +79,10 @@ class DepartamentoController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$departamento = Departamento::findOrFail($id);
+		$departamento->fill(Request::all());	
+		$departamento->save();
+		return redirect()->route('departamento.index');
 	}
 
 	/**
@@ -78,7 +93,11 @@ class DepartamentoController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$departamento = Departamento::findOrFail($id);
+		$departamento->delete();
+		$message=$departamento->nombre . ' fue eliminado del registro';
+		Session::flash('message', $message);
+		return redirect()->route('departamento.index');
 	}
 
 }

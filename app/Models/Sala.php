@@ -9,11 +9,11 @@ class Sala extends Model {
 
     public function tipos_salas()
     {
-        return $this->belongsTo('Tipo_Sala');
+        return $this->belongsTo('App\Models\Tipo_Sala');
     }
     public function horarios()
     {
-        return $this->hasMany('Horario');
+        return $this->hasMany('App\Models\Horario');
     }
 
 }

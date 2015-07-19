@@ -9,10 +9,10 @@ class Asignatura extends Model {
 
     public function departamentos()
     {
-        return $this->belongsTo('Departamento');
+        return $this->belongsTo('App\Models\Departamento');
     }
     public function departamentos()
     {
-        return $this->hasMany('Curso');
+        return $this->hasMany('App\Models\Curso');
     }
 }

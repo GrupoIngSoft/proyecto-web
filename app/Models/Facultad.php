@@ -5,15 +5,15 @@ use Illuminate\Database\Eloquent\Model;
 class Facultad extends Model {
 
     protected $table = 'facultades';
-    protected $fillable = ['nombre', 'descripcion'];
+    protected $fillable = ['nombre', 'campus_id' ,'descripcion'];
 
     public function campus()
     {
-        return $this->belongsTo('Campus');
+        return $this->belongsTo('App\Models\Campus');
     }
     public function departamentos()
     {
-        return $this->hasMany('Departamento');
+        return $this->hasMany('App\Models\Departamento');
     }
 
 }

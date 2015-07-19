@@ -22,3 +22,4 @@ Route::controllers([
 
 Route::resource('campus', 'CampusController');
 Route::resource('facultades', 'FacultadesController');
+Route::resource('departamento', 'DepartamentoController');

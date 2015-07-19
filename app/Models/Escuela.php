@@ -9,11 +9,11 @@ class Escuela extends Model {
 
     public function departamentos()
     {
-        return $this->belongsTo('Departamento');
+        return $this->belongsTo('App\Models\Departamento');
     }
     public function carreras()
     {
-        return $this->hasMany('Carrera');
+        return $this->hasMany('App\Models\Carrera');
     }
 
 }
