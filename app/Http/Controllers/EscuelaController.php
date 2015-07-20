@@ -2,8 +2,11 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Departamento;
+use App\Models\Escuela;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Routing\Redirector;
 
-use Illuminate\Http\Request;
 
 class EscuelaController extends Controller {
 
@@ -14,7 +17,8 @@ class EscuelaController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$escuela = Escuela::paginate();
+		return view('escuela.index', compact('escuela'));
 	}
 
 	/**
@@ -24,7 +28,9 @@ class EscuelaController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$departamento = Departamento::lists('nombre','id');
+		return view('escuela.create')
+				->with('departamento',$departamento);
 	}
 
 	/**
@@ -34,7 +40,10 @@ class EscuelaController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$escuela = Escuela::create(Request::all());
+		$escuela->save();
+
+		return redirect()->route('escuela.index');
 	}
 
 	/**
@@ -56,7 +65,10 @@ class EscuelaController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$departamento = Departamento::lists('nombre','id');
+		$escuela = Escuela::findOrFail($id);
+		return view('escuela.edit', compact('escuela'))
+				->with('departamento',$departamento);
 	}
 
 	/**
@@ -67,7 +79,10 @@ class EscuelaController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$escuela = Escuela::findOrFail($id);
+		$escuela->fill(Request::all());	
+		$escuela->save();
+		return redirect()->route('escuela.index');
 	}
 
 	/**
@@ -78,7 +93,11 @@ class EscuelaController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$escuela = Escuela::findOrFail($id);
+		$escuela->delete();
+		$message=$departamento->nombre . ' fue eliminado del registro';
+		Session::flash('message', $message);
+		return redirect()->route('escuela.index');
 	}
 
 }

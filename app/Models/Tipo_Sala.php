@@ -7,7 +7,7 @@ class Tipo_Sala extends Model {
     protected $table = 'tipos_salas';
     protected $fillable = ['nombre','descripcion'];
 
-    public function salas()
+    public function sala()
     {
         return $this->hasMany('App\Models\Sala');
     }

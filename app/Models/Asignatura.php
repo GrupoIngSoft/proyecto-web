@@ -7,11 +7,11 @@ class Asignatura extends Model {
     protected $table = 'asignaturas';
     protected $fillable = ['codigo','nombre', 'descripcion'];
 
-    public function departamentos()
+    public function departamento()
     {
         return $this->belongsTo('App\Models\Departamento');
     }
-    public function departamentos()
+    public function curso()
     {
         return $this->hasMany('App\Models\Curso');
     }

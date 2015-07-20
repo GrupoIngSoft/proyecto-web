@@ -7,11 +7,11 @@ class Curso extends Model {
     protected $table = 'cursos';
     protected $fillable = ['semestre','anio'];
 
-    public function docentes()
+    public function docente()
     {
         return $this->belongsTo('App\Models\Docente');
     }
-    public function asignaturas()
+    public function asignatura()
     {
         return $this->belongsTo('App\Models\Asignatura');
     }
@@ -19,7 +19,7 @@ class Curso extends Model {
     {
         return $this->hasMany('App\Models\Horario');
     }
-    public function estudiantes()
+    public function estudiante()
     {
 	return $this->belongsToMany('App\Models\Estudiante','asignaturas_cursadas','curso_id','estudiante_id');
     }

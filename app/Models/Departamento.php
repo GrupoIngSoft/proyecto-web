@@ -7,23 +7,23 @@ class Departamento extends Model {
     protected $table = 'departamentos';
     protected $fillable = ['nombre', 'facultad_id', 'descripcion'];
 
-    public function facultades()
+    public function facultad()
     {
         return $this->belongsTo('App\Models\Facultad');
     }
-    public function docentes()
+    public function docente()
     {
         return $this->hasMany('App\Models\Docente');
     }
-    public function escuelas()
+    public function escuela()
     {
         return $this->hasMany('App\Models\Escuela');
     }
-    public function funcionarios()
+    public function funcionario()
     {
         return $this->hasMany('App\Models\Funcionario');
     }
-    public function asignaturas()
+    public function asignatura()
     {
         return $this->hasMany('App\Models\Asignatura');
     }

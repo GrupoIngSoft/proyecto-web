@@ -7,7 +7,7 @@ class Rol_Usuario extends Model {
     protected $table = 'roles_usuarios';
     protected $fillable = ['rut'];
 
-    public function roles()
+    public function role()
     {
         return $this->belongsTo('App\Models\Rol');
     }

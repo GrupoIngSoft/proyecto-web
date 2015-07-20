@@ -7,6 +7,7 @@
 							  <li><a href="{{ route('campus.index') }}">Campus</a></li>
 							  <li><a href="{{ route('facultades.index') }}">Facultades</a></li>
 							  <li><a href="{{ route('departamento.index') }}">Departamentos</a></li>
+							  <li><a href="{{ route('escuela.index') }}">Escuelas</a></li>
 							</ul>
 					</div>
 				</div>

@@ -170,6 +170,7 @@ CREATE TABLE salas (
 	campus_id int NOT NULL REFERENCES campus(id) ON UPDATE CASCADE ON DELETE CASCADE,
 	tipo_sala_id int NOT NULL REFERENCES tipos_salas(id) ON UPDATE CASCADE ON DELETE CASCADE,
 	nombre varchar(255) NOT NULL,
+	capacidad int NOT NULL,
 	descripcion text,
 	created_at timestamp NOT NULL DEFAULT NOW(),
 	updated_at timestamp NOT NULL DEFAULT NOW(),

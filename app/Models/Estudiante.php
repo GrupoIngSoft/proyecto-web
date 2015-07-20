@@ -7,11 +7,11 @@ class Estudiante extends Model {
     protected $table = 'estudiantes';
     protected $fillable = ['rut','nombres','apellidos','email'];
 
-    public function carreras()
+    public function carrera()
     {
         return $this->belongsTo('App\Models\Carrera');
     }
-    public function cursos()
+    public function curso()
     {
 	return $this->belongsToMany('App\Models\Curso','asignaturas_cursadas','estudiante_id','curso_id');
     }

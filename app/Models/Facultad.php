@@ -11,7 +11,7 @@ class Facultad extends Model {
     {
         return $this->belongsTo('App\Models\Campus');
     }
-    public function departamentos()
+    public function departamento()
     {
         return $this->hasMany('App\Models\Departamento');
     }

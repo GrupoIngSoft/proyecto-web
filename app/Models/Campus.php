@@ -7,7 +7,7 @@ class Campus extends Model {
     protected $table = 'campus'; 
     protected $fillable = ['nombre', 'direccion', 'latitud', 'longitud', 'descripcion', 'rut_encargado'];
 
-    public function facultades()
+    public function facultad()
     {
         return $this->hasMany('App\Models\Facultad');
     }

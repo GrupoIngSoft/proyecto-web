@@ -7,11 +7,11 @@ class Carrera extends Model {
     protected $table = 'escuelas';
     protected $fillable = ['codigo','nombre','descripcion'];
 
-    public function escuelas()
+    public function escuela()
     {
         return $this->belongsTo('App\Models\Escuela');
     }
-    public function estudiantes()
+    public function estudiante()
     {
         return $this->hasMany('App\Models\Estudiante');
     }

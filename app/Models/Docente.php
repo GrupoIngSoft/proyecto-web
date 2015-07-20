@@ -7,11 +7,11 @@ class Docente extends Model {
     protected $table = 'docentes';
     protected $fillable = ['rut','nombres','apellidos'];
 
-    public function departamentos()
+    public function departamento()
     {
         return $this->belongsTo('App\Models\Departamento');
     }
-    public function cursos()
+    public function curso()
     {
         return $this->hasMany('App\Models\Curso');
     }

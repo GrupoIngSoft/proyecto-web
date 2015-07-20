@@ -7,15 +7,15 @@ class Horario extends Model {
     protected $table = 'horarios';
     protected $fillable = ['fecha'];
 
-    public function periodos()
+    public function periodo()
     {
         return $this->belongsTo('App\Models\Periodo');
     }
-    public function cursos()
+    public function curso()
     {
         return $this->belongsTo('App\Models\Curso');
     }
-    public function salas()
+    public function sala()
     {
         return $this->belongsTo('App\Models\Sala');
     }
