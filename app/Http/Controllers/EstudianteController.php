@@ -2,8 +2,10 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
+use App\Models\Carrera;
+use App\Models\Estudiante;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Routing\Redirector;
 
 class EstudianteController extends Controller {
 
@@ -14,7 +16,8 @@ class EstudianteController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$estudiante = Estudiante::paginate();
+		return view('estudiante.index', compact('estudiante'));
 	}
 
 	/**
@@ -24,7 +27,9 @@ class EstudianteController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$carrera = Carrera::lists('nombre','id');
+		return view('estudiante.create')
+				->with('carrera',$carrera);
 	}
 
 	/**
@@ -34,7 +39,10 @@ class EstudianteController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$estudiante = Estudiante::create(Request::all());
+		$estudiante->save();
+
+		return redirect()->route('estudiante.index');
 	}
 
 	/**
@@ -56,7 +64,10 @@ class EstudianteController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$carrera = Carrera::lists('nombre','id');
+		$estudiante = Estudiante::findOrFail($id);
+		return view('estudiante.edit', compact('estudiante'))
+				->with('carrera',$carrera);
 	}
 
 	/**
@@ -67,7 +78,10 @@ class EstudianteController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$estudiante = Estudiante::findOrFail($id);
+		$estudiante->fill(Request::all());	
+		$estudiante->save();
+		return redirect()->route('estudiante.index');
 	}
 
 	/**
@@ -78,7 +92,11 @@ class EstudianteController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$estudiante = Estudiante::findOrFail($id);
+		$estudiante->delete();
+		$message=$estudiante->nombre . ' fue eliminado del registro';
+		Session::flash('message', $message);
+		return redirect()->route('estudiante.index');
 	}
 
 }

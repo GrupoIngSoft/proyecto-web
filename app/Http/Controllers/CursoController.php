@@ -2,12 +2,13 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Funcionario;
-use App\Models\Departamento;
+use App\Models\Asignatura;
+use App\Models\Docente;
+use App\Models\Curso;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Redirector;
 
-class FuncionarioController extends Controller {
+class CursoController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,8 +17,8 @@ class FuncionarioController extends Controller {
 	 */
 	public function index()
 	{
-		$funcionario = Funcionario::paginate();
-		return view('funcionario.index', compact('funcionario'));
+		$curso = Curso::paginate();
+		return view('curso.index', compact('curso'));
 	}
 
 	/**
@@ -27,9 +28,11 @@ class FuncionarioController extends Controller {
 	 */
 	public function create()
 	{
-		$departamento = Departamento::lists('nombre','id');
-		return view('funcionario.create')
-				->with('departamento',$departamento);
+		$asignatura = Asignatura::lists('nombre','id');
+		$docente = Docente::lists('nombres','id');
+		return view('curso.create')
+				->with('asignatura',$asignatura)
+				->with('docente',$docente);
 	}
 
 	/**
@@ -39,10 +42,10 @@ class FuncionarioController extends Controller {
 	 */
 	public function store()
 	{
-		$funcionario = Funcionario::create(Request::all());
-		$funcionario->save();
+		$curso = Curso::create(Request::all());
+		$curso->save();
 
-		return redirect()->route('funcionario.index');
+		return redirect()->route('curso.index');
 	}
 
 	/**
@@ -64,10 +67,12 @@ class FuncionarioController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$departamento = Departamento::lists('nombre','id');
-		$funcionario = Funcionario::findOrFail($id);
-		return view('funcionario.edit', compact('funcionario'))
-				->with('departamento',$departamento);
+		$asignatura = Asignatura::lists('nombre','id');
+		$docente = Docente::lists('nombres','id');
+		$curso = Curso::findOrFail($id);
+		return view('curso.edit', compact('curso'))
+				->with('asignatura',$asignatura)
+				->with('docente',$docente);
 	}
 
 	/**
@@ -78,10 +83,10 @@ class FuncionarioController extends Controller {
 	 */
 	public function update($id)
 	{
-		$funcionario = Funcionario::findOrFail($id);
-		$funcionario->fill(Request::all());	
-		$funcionario->save();
-		return redirect()->route('funcionario.index');
+		$curso = Curso::findOrFail($id);
+		$curso->fill(Request::all());	
+		$curso->save();
+		return redirect()->route('curso.index');
 	}
 
 	/**
@@ -92,11 +97,11 @@ class FuncionarioController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$funcionario = Funcionario::findOrFail($id);
-		$funcionario->delete();
-		$message=$funcionario->nombre . ' fue eliminado del registro';
+		$curso = Curso::findOrFail($id);
+		$curso->delete();
+		$message=$curso->asignatura->nombre . ' fue eliminado del registro';
 		Session::flash('message', $message);
-		return redirect()->route('funcionario.index');
+		return redirect()->route('curso.index');
 	}
 
 }

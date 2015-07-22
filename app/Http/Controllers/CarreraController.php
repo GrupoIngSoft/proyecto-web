@@ -2,12 +2,12 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Funcionario;
-use App\Models\Departamento;
+use App\Models\Carrera;
+use App\Models\Escuela;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Redirector;
 
-class FuncionarioController extends Controller {
+class CarreraController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,8 +16,8 @@ class FuncionarioController extends Controller {
 	 */
 	public function index()
 	{
-		$funcionario = Funcionario::paginate();
-		return view('funcionario.index', compact('funcionario'));
+		$carrera = Carrera::paginate();
+		return view('carrera.index', compact('carrera'));
 	}
 
 	/**
@@ -27,9 +27,9 @@ class FuncionarioController extends Controller {
 	 */
 	public function create()
 	{
-		$departamento = Departamento::lists('nombre','id');
-		return view('funcionario.create')
-				->with('departamento',$departamento);
+		$escuela = Escuela::lists('nombre','id');
+		return view('carrera.create')
+				->with('escuela',$escuela);
 	}
 
 	/**
@@ -39,10 +39,10 @@ class FuncionarioController extends Controller {
 	 */
 	public function store()
 	{
-		$funcionario = Funcionario::create(Request::all());
-		$funcionario->save();
+		$carrera = Carrera::create(Request::all());
+		$carrera->save();
 
-		return redirect()->route('funcionario.index');
+		return redirect()->route('carrera.index');
 	}
 
 	/**
@@ -64,10 +64,10 @@ class FuncionarioController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$departamento = Departamento::lists('nombre','id');
-		$funcionario = Funcionario::findOrFail($id);
-		return view('funcionario.edit', compact('funcionario'))
-				->with('departamento',$departamento);
+		$escuela = Escuela::lists('nombre','id');
+		$carrera = Carrera::findOrFail($id);
+		return view('carrera.edit', compact('carrera'))
+				->with('escuela',$escuela);
 	}
 
 	/**
@@ -78,10 +78,10 @@ class FuncionarioController extends Controller {
 	 */
 	public function update($id)
 	{
-		$funcionario = Funcionario::findOrFail($id);
-		$funcionario->fill(Request::all());	
-		$funcionario->save();
-		return redirect()->route('funcionario.index');
+		$carrera = Carrera::findOrFail($id);
+		$carrera->fill(Request::all());	
+		$carrera->save();
+		return redirect()->route('carrera.index');
 	}
 
 	/**
@@ -92,11 +92,11 @@ class FuncionarioController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$funcionario = Funcionario::findOrFail($id);
-		$funcionario->delete();
-		$message=$funcionario->nombre . ' fue eliminado del registro';
+		$carrera = Carrera::findOrFail($id);
+		$carrera->delete();
+		$message=$carrera->nombre . ' fue eliminado del registro';
 		Session::flash('message', $message);
-		return redirect()->route('funcionario.index');
+		return redirect()->route('carrera.index');
 	}
 
 }

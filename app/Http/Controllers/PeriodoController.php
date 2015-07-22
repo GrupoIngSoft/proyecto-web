@@ -2,12 +2,11 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Funcionario;
-use App\Models\Departamento;
+use App\Models\Periodo;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Redirector;
 
-class FuncionarioController extends Controller {
+class PeriodoController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,8 +15,8 @@ class FuncionarioController extends Controller {
 	 */
 	public function index()
 	{
-		$funcionario = Funcionario::paginate();
-		return view('funcionario.index', compact('funcionario'));
+		$periodo = Periodo::paginate();
+		return view('periodo.index', compact('periodo'));
 	}
 
 	/**
@@ -27,9 +26,7 @@ class FuncionarioController extends Controller {
 	 */
 	public function create()
 	{
-		$departamento = Departamento::lists('nombre','id');
-		return view('funcionario.create')
-				->with('departamento',$departamento);
+		return view('periodo.create');
 	}
 
 	/**
@@ -39,10 +36,10 @@ class FuncionarioController extends Controller {
 	 */
 	public function store()
 	{
-		$funcionario = Funcionario::create(Request::all());
-		$funcionario->save();
+		$periodo = Periodo::create(Request::all());
+		$periodo->save();
 
-		return redirect()->route('funcionario.index');
+		return redirect()->route('periodo.index');
 	}
 
 	/**
@@ -64,10 +61,8 @@ class FuncionarioController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$departamento = Departamento::lists('nombre','id');
-		$funcionario = Funcionario::findOrFail($id);
-		return view('funcionario.edit', compact('funcionario'))
-				->with('departamento',$departamento);
+		$periodo = Periodo::findOrFail($id);
+		return view('periodo.edit', compact('periodo'));
 	}
 
 	/**
@@ -78,10 +73,10 @@ class FuncionarioController extends Controller {
 	 */
 	public function update($id)
 	{
-		$funcionario = Funcionario::findOrFail($id);
-		$funcionario->fill(Request::all());	
-		$funcionario->save();
-		return redirect()->route('funcionario.index');
+		$periodo = Periodo::findOrFail($id);
+		$periodo->fill(Request::all());	
+		$periodo->save();
+		return redirect()->route('periodo.index');
 	}
 
 	/**
@@ -92,11 +87,11 @@ class FuncionarioController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$funcionario = Funcionario::findOrFail($id);
-		$funcionario->delete();
-		$message=$funcionario->nombre . ' fue eliminado del registro';
+		$periodo = Periodo::findOrFail($id);
+		$periodo->delete();
+		$message=$periodo->nombre . ' fue eliminado del registro';
 		Session::flash('message', $message);
-		return redirect()->route('funcionario.index');
+		return redirect()->route('periodo.index');
 	}
 
 }

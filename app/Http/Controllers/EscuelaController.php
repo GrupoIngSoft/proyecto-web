@@ -95,7 +95,7 @@ class EscuelaController extends Controller {
 	{
 		$escuela = Escuela::findOrFail($id);
 		$escuela->delete();
-		$message=$departamento->nombre . ' fue eliminado del registro';
+		$message=$escuela->nombre . ' fue eliminado del registro';
 		Session::flash('message', $message);
 		return redirect()->route('escuela.index');
 	}

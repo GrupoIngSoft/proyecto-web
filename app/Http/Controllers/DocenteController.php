@@ -2,8 +2,10 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
+use App\Models\Docente;
+use App\Models\Departamento;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Routing\Redirector;
 
 class DocenteController extends Controller {
 
@@ -14,7 +16,8 @@ class DocenteController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$docente = Docente::paginate();
+		return view('docente.index', compact('docente'));
 	}
 
 	/**
@@ -24,7 +27,9 @@ class DocenteController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$departamento = Departamento::lists('nombre','id');
+		return view('docente.create')
+				->with('departamento',$departamento);
 	}
 
 	/**
@@ -34,7 +39,10 @@ class DocenteController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$docente = Docente::create(Request::all());
+		$docente->save();
+
+		return redirect()->route('docente.index');
 	}
 
 	/**
@@ -56,7 +64,10 @@ class DocenteController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$departamento = Departamento::lists('nombre','id');
+		$docente = Docente::findOrFail($id);
+		return view('docente.edit', compact('docente'))
+				->with('departamento',$departamento);
 	}
 
 	/**
@@ -67,7 +78,10 @@ class DocenteController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$docente = Docente::findOrFail($id);
+		$docente->fill(Request::all());	
+		$docente->save();
+		return redirect()->route('docente.index');
 	}
 
 	/**
@@ -78,7 +92,11 @@ class DocenteController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$docente = Docente::findOrFail($id);
+		$docente->delete();
+		$message=$docente->nombre . ' fue eliminado del registro';
+		Session::flash('message', $message);
+		return redirect()->route('docente.index');
 	}
 
 }

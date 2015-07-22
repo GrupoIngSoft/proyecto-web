@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Curso extends Model {
 
     protected $table = 'cursos';
-    protected $fillable = ['semestre','anio'];
+    protected $fillable = ['asignatura_id', 'docente_id', 'semestre','anio', 'seccion'];
 
     public function docente()
     {

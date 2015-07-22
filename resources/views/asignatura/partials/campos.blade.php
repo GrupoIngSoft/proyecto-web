@@ -1,6 +1,10 @@
  						  <div class="form-group">
-						    {!! Form::label('nombre','Nombre de Escuela') !!}
-						    {!! Form::text('nombre', null, ['class'=>'form-control', 'placeholder'=>'Introduzca Nombre de Escuela']) !!}
+						    {!! Form::label('nombre','Nombre de Asignatura') !!}
+						    {!! Form::text('nombre', null, ['class'=>'form-control', 'placeholder'=>'Introduzca Nombre de Asignatura']) !!}
+						  </div>
+						  <div class="form-group">
+						    {!! Form::label('codigo','Codigo de Asignatura') !!}
+						    {!! Form::text('codigo', null, ['class'=>'form-control', 'placeholder'=>'Introduzca Codigo de Asignatura']) !!}
 						  </div>
 						<div class="form-group">
 						{!! Form::label('departamento_id','Departamento al que Pertenece') !!}
