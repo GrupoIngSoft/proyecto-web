@@ -31,3 +31,5 @@ Route::resource('carrera', 'CarreraController');
 Route::resource('estudiante', 'EstudianteController');
 Route::resource('curso', 'CursoController');
 Route::resource('periodo', 'PeriodoController');
+Route::resource('tiposala', 'TipoSalaController');
+Route::resource('sala', 'SalaController');

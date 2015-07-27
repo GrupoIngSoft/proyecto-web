@@ -15,7 +15,7 @@ class Curso extends Model {
     {
         return $this->belongsTo('App\Models\Asignatura');
     }
-    public function horarios()
+    public function horario()
     {
         return $this->hasMany('App\Models\Horario');
     }

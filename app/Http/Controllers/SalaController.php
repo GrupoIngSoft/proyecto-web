@@ -2,8 +2,11 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
+use App\Models\Tipo_Sala;
+use App\Models\Campus;
+use App\Models\Sala;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Routing\Redirector;
 
 class SalaController extends Controller {
 
@@ -14,7 +17,8 @@ class SalaController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$sala = Sala::paginate();
+		return view('sala.index', compact('sala'));
 	}
 
 	/**
@@ -24,7 +28,11 @@ class SalaController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$campus = Campus::lists('nombre','id');
+		$tiposala = Tipo_Sala::lists('nombre','id');
+		return view('sala.create')
+				->with('campus',$campus)
+				->with('tiposala',$tiposala);
 	}
 
 	/**
@@ -34,7 +42,10 @@ class SalaController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$sala = Sala::create(Request::all());
+		$sala->save();
+
+		return redirect()->route('sala.index');
 	}
 
 	/**
@@ -56,7 +67,12 @@ class SalaController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$campus = Campus::lists('nombre','id');
+		$tiposala = Tipo_Sala::lists('nombre','id');
+		$sala = Sala::findOrFail($id);
+		return view('sala.edit', compact('sala'))
+				->with('campus',$campus)
+				->with('tiposala',$tiposala);
 	}
 
 	/**
@@ -67,7 +83,10 @@ class SalaController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$sala = Sala::findOrFail($id);
+		$sala->fill(Request::all());	
+		$sala->save();
+		return redirect()->route('sala.index');
 	}
 
 	/**
@@ -78,7 +97,11 @@ class SalaController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$sala = Sala::findOrFail($id);
+		$sala->delete();
+		$message=$sala->nombre . ' fue eliminado del registro';
+		Session::flash('message', $message);
+		return redirect()->route('sala.index');
 	}
 
 }

@@ -11,4 +11,9 @@ class Campus extends Model {
     {
         return $this->hasMany('App\Models\Facultad');
     }
+
+    public function sala()
+    {
+        return $this->hasMany('App\Models\Sala');
+    }
 }

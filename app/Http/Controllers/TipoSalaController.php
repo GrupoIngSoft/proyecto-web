@@ -2,8 +2,9 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
+use App\Models\Tipo_Sala;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Routing\Redirector;
 
 class TipoSalaController extends Controller {
 
@@ -14,7 +15,8 @@ class TipoSalaController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$tiposala = Tipo_Sala::paginate();
+		return view('tiposala.index', compact('tiposala'));
 	}
 
 	/**
@@ -24,7 +26,7 @@ class TipoSalaController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		return view('tiposala.create');
 	}
 
 	/**
@@ -34,7 +36,10 @@ class TipoSalaController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$tiposala = Tipo_Sala::create(Request::all());
+		$tiposala->save();
+
+		return redirect()->route('tiposala.index');
 	}
 
 	/**
@@ -56,7 +61,8 @@ class TipoSalaController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$tiposala = Tipo_Sala::findOrFail($id);
+		return view('tiposala.edit', compact('tiposala'));
 	}
 
 	/**
@@ -67,7 +73,10 @@ class TipoSalaController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$tiposala = Tipo_Sala::findOrFail($id);
+		$tiposala->fill(Request::all());	
+		$tiposala->save();
+		return redirect()->route('tiposala.index');
 	}
 
 	/**
@@ -78,7 +87,11 @@ class TipoSalaController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$tiposala = Tipo_Sala::findOrFail($id);
+		$tiposala->delete();
+		$message=$tiposala->nombre . ' fue eliminado del registro';
+		Session::flash('message', $message);
+		return redirect()->route('tiposala.index');
 	}
 
 }

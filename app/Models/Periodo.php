@@ -7,7 +7,7 @@ class Periodo extends Model {
     protected $table = 'periodos';
     protected $fillable = ['bloque','inicio','fin'];
 
-    public function horarios()
+    public function horario()
     {
         return $this->hasMany('App\Models\Horario');
     }

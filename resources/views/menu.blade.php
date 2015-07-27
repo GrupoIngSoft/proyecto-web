@@ -16,6 +16,8 @@
 							  <li><a href="{{ route('estudiante.index') }}">Estudiantes</a></li>
 							  <li><a href="{{ route('curso.index') }}">Cursos</a></li>
 							  <li><a href="{{ route('periodo.index') }}">Periodos</a></li>
+							  <li><a href="{{ route('tiposala.index') }}">Tipo de Salas</a></li>
+							  <li><a href="{{ route('sala.index') }}">Salas</a></li>
 							</ul>
 					</div>
 				</div>
