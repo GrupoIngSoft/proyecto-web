@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class RolUsuario extends Model {
 
     protected $table = 'roles_usuarios';
-    protected $fillable = ['rut'];
+    protected $fillable = ['rut', 'rol_id'];
 
     public function rol()
     {

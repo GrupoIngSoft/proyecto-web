@@ -5,14 +5,14 @@ use Illuminate\Database\Eloquent\Model;
 class Sala extends Model {
 
     protected $table = 'salas';
-    protected $fillable = ['campus_id', 'tipo_sala_id', 'nombre','descripcion'];
+    protected $fillable = ['campus_id', 'tipo_sala_id', 'nombre', 'capacidad', 'descripcion'];
 
     public function campus()
     {
         return $this->belongsTo('App\Models\Campus');
     }
 
-    public function tiposala()
+    public function TipoSala()
     {
         return $this->belongsTo('App\Models\TipoSala');
     }

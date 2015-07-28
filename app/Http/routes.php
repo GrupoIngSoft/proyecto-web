@@ -20,17 +20,27 @@ Route::controllers([
 	'password' => 'Auth\PasswordController',
 ]);
 
-Route::resource('campus', 'CampusController');
-Route::resource('facultades', 'FacultadesController');
-Route::resource('departamento', 'DepartamentoController');
-Route::resource('escuela', 'EscuelaController');
-Route::resource('asignatura', 'AsignaturaController');
-Route::resource('docente', 'DocenteController');
-Route::resource('funcionario', 'FuncionarioController');
-Route::resource('carrera', 'CarreraController');
-Route::resource('estudiante', 'EstudianteController');
-Route::resource('curso', 'CursoController');
-Route::resource('periodo', 'PeriodoController');
-Route::resource('tiposala', 'TipoSalaController');
-Route::resource('sala', 'SalaController');
-Route::resource('rolusuario', 'RolUsuarioController');
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
+
+	Route::resource('campus', 'CampusController');
+	Route::resource('facultades', 'FacultadesController');
+	Route::resource('departamento', 'DepartamentoController');
+	Route::resource('escuela', 'EscuelaController');
+	Route::resource('asignatura', 'AsignaturaController');
+	Route::resource('docente', 'DocenteController');
+	Route::resource('funcionario', 'FuncionarioController');
+	Route::resource('carrera', 'CarreraController');
+	Route::resource('estudiante', 'EstudianteController');
+	Route::resource('curso', 'CursoController');
+	Route::resource('periodo', 'PeriodoController');
+	Route::resource('tiposala', 'TipoSalaController');
+	Route::resource('sala', 'SalaController');
+	Route::resource('rolusuario', 'RolUsuarioController');
+
+});
+
+Route::group(['prefix' => 'ecampus', 'namespace' => 'EncargadoCampus'], function(){
+
+
+
+});

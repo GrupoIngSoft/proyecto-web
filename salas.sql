@@ -53,10 +53,7 @@ CREATE TABLE roles_usuarios (
     UNIQUE (rut, rol_id),
     PRIMARY KEY (id)
 );
-INSERT INTO roles_usuarios (rut, rol_id) VALUES ('15997886','1');
-INSERT INTO roles_usuarios (rut, rol_id) VALUES ('15997876','2');
-INSERT INTO roles_usuarios (rut, rol_id) VALUES ('15997896','3');
-INSERT INTO roles_usuarios (rut, rol_id) VALUES ('15997856','4');
+
 
 
 
@@ -239,6 +236,9 @@ CREATE TABLE tipos_salas (
     PRIMARY KEY (id)
 );
 
+INSERT INTO tipos_salas (nombre) VALUES ('Sala Común');
+INSERT INTO tipos_salas (nombre) VALUES ('Sala de Reuniones');
+INSERT INTO tipos_salas (nombre) VALUES ('Laboratorio');
 
 DROP TABLE IF EXISTS salas CASCADE;
 CREATE TABLE salas (
@@ -246,7 +246,7 @@ CREATE TABLE salas (
     campus_id int NOT NULL REFERENCES campus(id) ON UPDATE CASCADE ON DELETE CASCADE,
     tipo_sala_id int NOT NULL REFERENCES tipos_salas(id) ON UPDATE CASCADE ON DELETE CASCADE,
     nombre varchar(255) NOT NULL,
-    capacidad int MOT NULL,
+    capacidad int NOT NULL,
     descripcion text,
     created_at timestamp NOT NULL DEFAULT NOW(),
     updated_at timestamp NOT NULL DEFAULT NOW(),
