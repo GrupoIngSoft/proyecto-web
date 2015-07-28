@@ -19,6 +19,7 @@
 					@include('campus.partials.tablas')
 					
 				</div>
+				{!! $campus->render() !!}
 			</div>
 		</div>
 	</div>

@@ -19,6 +19,7 @@
 					@include('periodo.partials.tablas')
 					
 				</div>
+				{!! $periodo->render() !!}
 			</div>
 		</div>
 	</div>

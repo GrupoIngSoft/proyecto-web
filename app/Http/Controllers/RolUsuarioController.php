@@ -2,11 +2,12 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\TipoSala;
+use App\Models\Rol;
+use App\Models\RolUsuario;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Redirector;
 
-class TipoSalaController extends Controller {
+class RolUsuarioController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,8 +16,8 @@ class TipoSalaController extends Controller {
 	 */
 	public function index()
 	{
-		$tiposala = TipoSala::paginate();
-		return view('tiposala.index', compact('tiposala'));
+		$rolusuario = RolUsuario::paginate();
+		return view('rolusuario.index', compact('rolusuario'));
 	}
 
 	/**
@@ -26,7 +27,9 @@ class TipoSalaController extends Controller {
 	 */
 	public function create()
 	{
-		return view('tiposala.create');
+		$rol = Rol::lists('nombre', 'id');
+		return view('rolusuario.create')
+				->with('rol',$rol);
 	}
 
 	/**
@@ -36,10 +39,10 @@ class TipoSalaController extends Controller {
 	 */
 	public function store()
 	{
-		$tiposala = TipoSala::create(Request::all());
-		$tiposala->save();
+		$rolusuario = RolUsuario::create(Request::all());
+		$rolusuario->save();
 
-		return redirect()->route('tiposala.index');
+		return redirect()->route('rolusuario.index');
 	}
 
 	/**
@@ -61,8 +64,10 @@ class TipoSalaController extends Controller {
 	 */
 	public function edit($id)
 	{
-		$tiposala = TipoSala::findOrFail($id);
-		return view('tiposala.edit', compact('tiposala'));
+		$rol = Rol::lists('nombre', 'id');
+		$rolusuario = RolUsuario::findOrFail($id);
+		return view('rolusuario.edit', compact('rolusuario'))
+				->with('rol',$rol);
 	}
 
 	/**
@@ -73,10 +78,10 @@ class TipoSalaController extends Controller {
 	 */
 	public function update($id)
 	{
-		$tiposala = TipoSala::findOrFail($id);
-		$tiposala->fill(Request::all());	
-		$tiposala->save();
-		return redirect()->route('tiposala.index');
+		$rolusuario = RolUsuario::findOrFail($id);
+		$rolusuario->fill(Request::all());	
+		$rolusuario->save();
+		return redirect()->route('rolusuario.index');
 	}
 
 	/**
@@ -87,11 +92,11 @@ class TipoSalaController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$tiposala = TipoSala::findOrFail($id);
-		$tiposala->delete();
-		$message=$tiposala->nombre . ' fue eliminado del registro';
+		$rolusuario = RolUsuario::findOrFail($id);
+		$rolusuario->delete();
+		$message=$rolusuario->rut . ' fue eliminado del registro';
 		Session::flash('message', $message);
-		return redirect()->route('tiposala.index');
+		return redirect()->route('rolusuario.index');
 	}
 
 }

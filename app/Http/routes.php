@@ -33,3 +33,4 @@ Route::resource('curso', 'CursoController');
 Route::resource('periodo', 'PeriodoController');
 Route::resource('tiposala', 'TipoSalaController');
 Route::resource('sala', 'SalaController');
+Route::resource('rolusuario', 'RolUsuarioController');

@@ -19,6 +19,7 @@
 					@include('departamento.partials.tablas')
 					
 				</div>
+				{!! $departamento->render() !!}
 			</div>
 		</div>
 	</div>

@@ -4,7 +4,7 @@
 					<div class="panel-heading">Menu</div>
 							<ul>
 							  <li><a href="#">Inicio</a></li>
-							  <li><a href="#">Usuarios</a></li>
+							  <li><a href="{{ route('rolusuario.index') }}">Usuarios</a></li>
 							  <li><a href="{{ route('campus.index') }}">Campus</a></li>
 							  <li><a href="{{ route('facultades.index') }}">Facultades</a></li>
 							  <li><a href="{{ route('departamento.index') }}">Departamentos</a></li>
@@ -18,7 +18,6 @@
 							  <li><a href="{{ route('periodo.index') }}">Periodos</a></li>
 							  <li><a href="{{ route('tiposala.index') }}">Tipo de Salas</a></li>
 							  <li><a href="{{ route('sala.index') }}">Salas</a></li>
-							</ul>
 					</div>
 				</div>
 	</div>

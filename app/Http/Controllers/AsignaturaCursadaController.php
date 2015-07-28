@@ -2,8 +2,11 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Curso;
+use App\Models\Estudiante;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Routing\Redirector;
 
-use Illuminate\Http\Request;
 
 class AsignaturaCursadaController extends Controller {
 

@@ -19,6 +19,7 @@
 					@include('funcionario.partials.tablas')
 					
 				</div>
+				{!! $funcionario->render() !!}
 			</div>
 		</div>
 	</div>

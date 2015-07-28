@@ -19,6 +19,7 @@
 					@include('tiposala.partials.tablas')
 					
 				</div>
+				{!! $tiposala->render() !!}
 			</div>
 		</div>
 	</div>

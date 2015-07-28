@@ -19,6 +19,7 @@
 					@include('sala.partials.tablas')
 					
 				</div>
+				{!! $sala->render() !!}
 			</div>
 		</div>
 	</div>

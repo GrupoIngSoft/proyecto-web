@@ -19,6 +19,7 @@
 					@include('curso.partials.tablas')
 					
 				</div>
+				{!! $curso->render() !!}
 			</div>
 		</div>
 	</div>

@@ -2,7 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Tipo_Sala;
+use App\Models\TipoSala;
 use App\Models\Campus;
 use App\Models\Sala;
 use Illuminate\Support\Facades\Request;
@@ -29,7 +29,7 @@ class SalaController extends Controller {
 	public function create()
 	{
 		$campus = Campus::lists('nombre','id');
-		$tiposala = Tipo_Sala::lists('nombre','id');
+		$tiposala = TipoSala::lists('nombre','id');
 		return view('sala.create')
 				->with('campus',$campus)
 				->with('tiposala',$tiposala);
@@ -68,7 +68,7 @@ class SalaController extends Controller {
 	public function edit($id)
 	{
 		$campus = Campus::lists('nombre','id');
-		$tiposala = Tipo_Sala::lists('nombre','id');
+		$tiposala = TipoSala::lists('nombre','id');
 		$sala = Sala::findOrFail($id);
 		return view('sala.edit', compact('sala'))
 				->with('campus',$campus)

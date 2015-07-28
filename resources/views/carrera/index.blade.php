@@ -19,6 +19,7 @@
 					@include('carrera.partials.tablas')
 					
 				</div>
+				{!! $carrera->render() !!}
 			</div>
 		</div>
 	</div>

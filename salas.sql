@@ -54,9 +54,9 @@ CREATE TABLE roles_usuarios (
     PRIMARY KEY (id)
 );
 INSERT INTO roles_usuarios (rut, rol_id) VALUES ('15997886','1');
-INSERT INTO roles_usuarios (rut, rol_id) VALUES ('15997886','2');
-INSERT INTO roles_usuarios (rut, rol_id) VALUES ('15997886','3');
-INSERT INTO roles_usuarios (rut, rol_id) VALUES ('15997886','4');
+INSERT INTO roles_usuarios (rut, rol_id) VALUES ('15997876','2');
+INSERT INTO roles_usuarios (rut, rol_id) VALUES ('15997896','3');
+INSERT INTO roles_usuarios (rut, rol_id) VALUES ('15997856','4');
 
 
 

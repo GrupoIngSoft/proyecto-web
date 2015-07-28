@@ -14,7 +14,7 @@ class Sala extends Model {
 
     public function tiposala()
     {
-        return $this->belongsTo('App\Models\Tipo_Sala');
+        return $this->belongsTo('App\Models\TipoSala');
     }
 
     public function horario()
