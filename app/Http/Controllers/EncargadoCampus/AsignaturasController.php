@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers\Admin;
+<?php namespace App\Http\Controllers\EncargadoCampus;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Redirector;
 
 
-class AsignaturaController extends Controller {
+class AsignaturasController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -17,8 +17,8 @@ class AsignaturaController extends Controller {
 	 */
 	public function index()
 	{
-		$asignatura = Asignatura::paginate();
-		return view('admin.asignatura.index', compact('asignatura'));
+		$asignaturas = Asignatura::paginate();
+		return view('ecampus.asignaturas.index', compact('asignaturas'));
 	}
 
 	/**
@@ -29,7 +29,7 @@ class AsignaturaController extends Controller {
 	public function create()
 	{
 		$departamento = Departamento::lists('nombre','id');
-		return view('admin.asignatura.create')
+		return view('ecampus.asignaturas.create')
 				->with('departamento',$departamento);
 	}
 
@@ -40,10 +40,10 @@ class AsignaturaController extends Controller {
 	 */
 	public function store()
 	{
-		$asignatura = Asignatura::create(Request::all());
-		$asignatura->save();
+		$asignaturas = Asignatura::create(Request::all());
+		$asignaturas->save();
 
-		return redirect()->route('admin.asignatura.index');
+		return redirect()->route('ecampus.asignaturas.index');
 	}
 
 	/**
@@ -66,8 +66,8 @@ class AsignaturaController extends Controller {
 	public function edit($id)
 	{
 		$departamento = Departamento::lists('nombre','id');
-		$asignatura = Asignatura::findOrFail($id);
-		return view('admin.asignatura.edit', compact('asignatura'))
+		$asignaturas = Asignatura::findOrFail($id);
+		return view('ecampus.asignaturas.edit', compact('asignaturas'))
 				->with('departamento',$departamento);
 	}
 
@@ -79,10 +79,10 @@ class AsignaturaController extends Controller {
 	 */
 	public function update($id)
 	{
-		$asignatura = Asignatura::findOrFail($id);
-		$asignatura->fill(Request::all());	
-		$asignatura->save();
-		return redirect()->route('admin.asignatura.index');
+		$asignaturas = Asignatura::findOrFail($id);
+		$asignaturas->fill(Request::all());	
+		$asignaturas->save();
+		return redirect()->route('ecampus.asignaturas.index');
 	}
 
 	/**
@@ -93,11 +93,11 @@ class AsignaturaController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$asignatura = Asignatura::findOrFail($id);
-		$asignatura->delete();
-		$message=$asignatura->nombre . ' fue eliminado del registro';
+		$asignaturas = Asignatura::findOrFail($id);
+		$asignaturas->delete();
+		$message=$asignaturas->nombre . ' fue eliminado del registro';
 		Session::flash('message', $message);
-		return redirect()->route('admin.asignatura.index');
+		return redirect()->route('ecampus.asignaturas.index');
 	}
 
 }

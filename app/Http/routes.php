@@ -36,11 +36,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
 	Route::resource('tiposala', 'TipoSalaController');
 	Route::resource('sala', 'SalaController');
 	Route::resource('rolusuario', 'RolUsuarioController');
-
+	
 });
 
 Route::group(['prefix' => 'ecampus', 'namespace' => 'EncargadoCampus'], function(){
 
-
+	Route::resource('estudiantes', 'EstudianteController');
+	Route::resource('asignaturas', 'AsignaturasController');
+	Route::resource('salas', 'SalasController');
+	Route::resource('cursos', 'CursosController');
+	Route::resource('horario', 'HorariosController');
 
 });
