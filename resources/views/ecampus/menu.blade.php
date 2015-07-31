@@ -7,7 +7,7 @@
 							  <li><a href="{{ route('ecampus.asignaturas.index') }}">Asignaturas</a></li>
 							  <li><a href="{{ route('ecampus.estudiantes.index') }}">Estudiantes</a></li>
 							  <li><a href="{{ route('ecampus.cursos.index') }}">Cursos</a></li>
-							  <li><a href="{{ route('ecampus.horarios.index') }}">Horarios</a></li>
+							  <li><a href="{{ route('ecampus.horario.index') }}">Horarios</a></li>
 							  <li><a href="{{ route('ecampus.salas.index') }}">Salas</a></li>
 					</div>
 				</div>

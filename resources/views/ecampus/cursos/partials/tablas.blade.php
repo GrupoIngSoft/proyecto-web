@@ -11,7 +11,7 @@
 						@foreach($cursos as $cursos)
 							<td>{{ $cursos->id }}</td>
 							<td>{{ $cursos->asignatura->nombre }}</td>
-							<td>{{ $cursos->docente->nombres }}</td>
+							<td>{{ $cursos->docente->nombres }} {{ $cursos->docente->apellidos }}</td>
 							<td>{{ $cursos->semestre }}</td>
 							<td>{{ $cursos->anio }}</td>
 							<td>{{ $cursos->seccion }}</td>

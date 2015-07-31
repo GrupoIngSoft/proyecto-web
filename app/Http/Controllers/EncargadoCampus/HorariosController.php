@@ -2,8 +2,13 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
+use App\Models\Curso;
+use App\Models\Periodo;
+use App\Models\Sala;
+use App\Models\Horario;
+use App\Models\Asignatura;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Routing\Redirector;
 
 class HorariosController extends Controller {
 
@@ -14,7 +19,8 @@ class HorariosController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$horarios = Horario::paginate();
+		return view('ecampus.horario.index', compact('horarios'));
 	}
 
 	/**
@@ -24,7 +30,23 @@ class HorariosController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		$salas = Sala::lists('nombre','id');
+		$periodos = Periodo::lists('bloque','id');
+		$periodo = Periodo::lists('inicio','id');
+		$Periodo = Periodo::lists('fin','id');
+		$cursos = Curso::lists('semestre','id');
+		$curso = Curso::lists('anio','id');
+		$asignaturas = Asignatura::lists('nombre','id');
+		$asignatura = Asignatura::lists('codigo','id');
+		return view('ecampus.horario.create')
+				->with('salas',$salas)
+				->with('periodos',$periodos)
+				->with('periodo',$periodo)
+				->with('Periodo',$Periodo)
+				->with('cursos',$cursos)
+				->with('curso',$curso)
+				->with('asignaturas',$asignaturas)
+				->with('asignatura',$asignatura);
 	}
 
 	/**
@@ -34,7 +56,10 @@ class HorariosController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$horarios = Horario::create(Request::all());
+		$horarios->save();
+
+		return redirect()->route('ecampus.horario.index');
 	}
 
 	/**
@@ -56,7 +81,24 @@ class HorariosController extends Controller {
 	 */
 	public function edit($id)
 	{
-		//
+		$salas = Sala::lists('nombre','id');
+		$periodos = Periodo::lists('bloque','id');
+		$periodo = Periodo::lists('inicio','id');
+		$Periodo = Periodo::lists('fin','id');
+		$cursos = Curso::lists('semestre','id');
+		$curso = Curso::lists('anio','id');
+		$asignaturas = Asignatura::lists('nombre','id');
+		$asignatura = Asignatura::lists('codigo','id');
+		$horarios = Horario::findOrFail($id);
+		return view('ecampus.horario.create', compact('horarios'))
+				->with('salas',$salas)
+				->with('periodos',$periodos)
+				->with('periodo',$periodo)
+				->with('Periodo',$Periodo)
+				->with('cursos',$cursos)
+				->with('curso',$curso)
+				->with('asignaturas',$asignaturas)
+				->with('asignatura',$asignatura);
 	}
 
 	/**
@@ -67,7 +109,10 @@ class HorariosController extends Controller {
 	 */
 	public function update($id)
 	{
-		//
+		$horarios = Horario::findOrFail($id);
+		$horarios->fill(Request::all());	
+		$horarios->save();
+		return redirect()->route('ecampus.horario.index');
 	}
 
 	/**
@@ -78,7 +123,11 @@ class HorariosController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$horarios = Horario::findOrFail($id);
+		$horarios->delete();
+		$message='El horario con fecha'.$horarios->fecha . ' fue eliminado del registro';
+		Session::flash('message', $message);
+		return redirect()->route('ecampus.horario.index');
 	}
 
 }
