@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers\Admin;
+<?php namespace App\Http\Controllers\EncargadoCampus;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -18,7 +18,7 @@ class DocenteController extends Controller {
 	public function index()
 	{
 		$docente = Docente::paginate();
-		return view('admin.docente.index', compact('docente'));
+		return view('ecampus.docente.index', compact('docente'));
 	}
 
 	/**
@@ -29,7 +29,7 @@ class DocenteController extends Controller {
 	public function create()
 	{
 		$departamento = Departamento::lists('nombre','id');
-		return view('admin.docente.create')
+		return view('ecampus.docente.create')
 				->with('departamento',$departamento);
 	}
 
@@ -43,7 +43,7 @@ class DocenteController extends Controller {
 		$docente = Docente::create(Request::all());
 		$docente->save();
 
-		return redirect()->route('admin.docente.index');
+		return redirect()->route('ecampus.docente.index');
 	}
 
 	/**
@@ -67,7 +67,7 @@ class DocenteController extends Controller {
 	{
 		$departamento = Departamento::lists('nombre','id');
 		$docente = Docente::findOrFail($id);
-		return view('admin.docente.edit', compact('docente'))
+		return view('ecampus.docente.edit', compact('docente'))
 				->with('departamento',$departamento);
 	}
 
@@ -82,7 +82,7 @@ class DocenteController extends Controller {
 		$docente = Docente::findOrFail($id);
 		$docente->fill(Request::all());	
 		$docente->save();
-		return redirect()->route('admin.docente.index');
+		return redirect()->route('ecampus.docente.index');
 	}
 
 	/**
@@ -97,7 +97,7 @@ class DocenteController extends Controller {
 		$docente->delete();
 		$message=$docente->nombre . ' fue eliminado del registro';
 		Session::flash('message', $message);
-		return redirect()->route('admin.docente.index');
+		return redirect()->route('ecampus.docente.index');
 	}
 
 }

@@ -6,6 +6,7 @@ use App\Models\Departamento;
 use App\Models\Escuela;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Session;
 
 
 class EscuelaController extends Controller {

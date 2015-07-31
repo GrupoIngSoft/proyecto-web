@@ -7,6 +7,7 @@ use App\Models\Campus;
 use App\Models\Sala;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Session;
 
 class SalasController extends Controller {
 

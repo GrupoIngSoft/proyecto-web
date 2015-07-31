@@ -1,14 +1,14 @@
-<?php namespace App\Http\Controllers\Admin;
+<?php namespace App\Http\Controllers\EncargadoCampus;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Docente;
+use App\Models\Funcionario;
 use App\Models\Departamento;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Session;
 
-class DocenteController extends Controller {
+class FuncionarioController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -17,8 +17,8 @@ class DocenteController extends Controller {
 	 */
 	public function index()
 	{
-		$docente = Docente::paginate();
-		return view('admin.docente.index', compact('docente'));
+		$funcionario = Funcionario::paginate();
+		return view('ecampus.funcionario.index', compact('funcionario'));
 	}
 
 	/**
@@ -29,7 +29,7 @@ class DocenteController extends Controller {
 	public function create()
 	{
 		$departamento = Departamento::lists('nombre','id');
-		return view('admin.docente.create')
+		return view('ecampus.funcionario.create')
 				->with('departamento',$departamento);
 	}
 
@@ -40,10 +40,10 @@ class DocenteController extends Controller {
 	 */
 	public function store()
 	{
-		$docente = Docente::create(Request::all());
-		$docente->save();
+		$funcionario = Funcionario::create(Request::all());
+		$funcionario->save();
 
-		return redirect()->route('admin.docente.index');
+		return redirect()->route('ecampus.funcionario.index');
 	}
 
 	/**
@@ -66,8 +66,8 @@ class DocenteController extends Controller {
 	public function edit($id)
 	{
 		$departamento = Departamento::lists('nombre','id');
-		$docente = Docente::findOrFail($id);
-		return view('admin.docente.edit', compact('docente'))
+		$funcionario = Funcionario::findOrFail($id);
+		return view('ecampus.funcionario.edit', compact('funcionario'))
 				->with('departamento',$departamento);
 	}
 
@@ -79,10 +79,10 @@ class DocenteController extends Controller {
 	 */
 	public function update($id)
 	{
-		$docente = Docente::findOrFail($id);
-		$docente->fill(Request::all());	
-		$docente->save();
-		return redirect()->route('admin.docente.index');
+		$funcionario = Funcionario::findOrFail($id);
+		$funcionario->fill(Request::all());	
+		$funcionario->save();
+		return redirect()->route('ecampus.funcionario.index');
 	}
 
 	/**
@@ -93,11 +93,11 @@ class DocenteController extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$docente = Docente::findOrFail($id);
-		$docente->delete();
-		$message=$docente->nombre . ' fue eliminado del registro';
+		$funcionario = Funcionario::findOrFail($id);
+		$funcionario->delete();
+		$message=$funcionario->nombre . ' fue eliminado del registro';
 		Session::flash('message', $message);
-		return redirect()->route('admin.docente.index');
+		return redirect()->route('ecampus.funcionario.index');
 	}
 
 }

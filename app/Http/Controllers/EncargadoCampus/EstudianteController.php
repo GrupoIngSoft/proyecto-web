@@ -6,6 +6,7 @@ use App\Models\Carrera;
 use App\Models\Estudiante;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Session;
 
 class EstudianteController extends Controller {
 

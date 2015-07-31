@@ -9,6 +9,7 @@ use App\Models\Horario;
 use App\Models\Asignatura;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Session;
 
 class HorariosController extends Controller {
 

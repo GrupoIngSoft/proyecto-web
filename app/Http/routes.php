@@ -46,5 +46,7 @@ Route::group(['prefix' => 'ecampus', 'namespace' => 'EncargadoCampus'], function
 	Route::resource('salas', 'SalasController');
 	Route::resource('cursos', 'CursosController');
 	Route::resource('horario', 'HorariosController');
+	Route::resource('docente', 'DocenteController');
+	Route::resource('funcionario', 'FuncionarioController');
 
 });

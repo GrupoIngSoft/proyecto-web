@@ -6,6 +6,7 @@ use App\Models\Rol;
 use App\Models\RolUsuario;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Session;
 
 class RolUsuarioController extends Controller {
 

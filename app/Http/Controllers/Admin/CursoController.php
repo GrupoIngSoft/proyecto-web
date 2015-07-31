@@ -7,6 +7,7 @@ use App\Models\Docente;
 use App\Models\Curso;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Session;
 
 class CursoController extends Controller {
 

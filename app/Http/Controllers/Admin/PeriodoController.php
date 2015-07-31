@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Periodo;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Redirector;
+use Illuminate\Support\Facades\Session;
 
 class PeriodoController extends Controller {
 
