@@ -12,6 +12,7 @@
 					<div>
 						<p>Este es el area de Administración del Sistema</p> 
  						<p>Aquí podrá realizar la administración general del sistema, puede crear/modificar/eliminar cualquier sección del sistema. </p>
+						<p>Navegue por el menu lateral izquierdo para mostrar/crear/editar/eliminar cualquiera de las secciones.</p>				
 					</div>
 				</div>
 			</div>

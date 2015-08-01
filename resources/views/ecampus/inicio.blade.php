@@ -12,6 +12,7 @@
  					<div>
  						<p>Este es el area de Encargado De Campus.</p> 
  						<p>Aquí podrá asignar salas a su correspondiente Campus, crear Cursos Horarios, etc.</p>
+						<p>Navegue por el menu lateral izquierdo para mostrar/crear/editar/eliminar cualquiera de las secciones.</p>				
  					</div>
 				</div>
 			</div>
