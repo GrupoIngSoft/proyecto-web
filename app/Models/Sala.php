@@ -17,7 +17,7 @@ class Sala extends Model {
         return $this->belongsTo('App\Models\TipoSala');
     }
 
-    public function horario()
+    public function Horario()
     {
         return $this->hasMany('App\Models\Horario');
     }

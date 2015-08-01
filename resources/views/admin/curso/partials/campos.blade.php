@@ -8,7 +8,7 @@
 						  </div>
 						   <div class="form-group">
 						    {!! Form::label('semestre','Semestre al que Corresponde') !!}
-						    {!! Form::text('semestre', null, ['class'=>'form-control', 'placeholder'=>'Semestre al que Corresponde']) !!}
+						    {!! Form::text('semestre', null, ['class'=>'form-control', 'placeholder'=>'Seleccione Semestre del Curso']) !!}
 						  </div>
 						  <div class="form-group">
 						    {!! Form::label('anio','Año del Curso') !!}

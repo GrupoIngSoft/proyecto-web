@@ -3,7 +3,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Menu</div>
 							<ul>
-							  <li><a href="#">Inicio</a></li>
+							  <li><a href="{{ route('admin.inicio.index') }}">Inicio</a></li>
 							  <li><a href="{{ route('admin.rolusuario.index') }}">Usuarios</a></li>
 							  <li><a href="{{ route('admin.campus.index') }}">Campus</a></li>
 							  <li><a href="{{ route('admin.facultades.index') }}">Facultades</a></li>

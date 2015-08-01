@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+//Route::get('/', 'WelcomeController@index');
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -36,6 +36,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
 	Route::resource('tiposala', 'TipoSalaController');
 	Route::resource('sala', 'SalaController');
 	Route::resource('rolusuario', 'RolUsuarioController');
+	Route::resource('inicio', 'InicioController');
 	
 });
 
@@ -45,8 +46,9 @@ Route::group(['prefix' => 'ecampus', 'namespace' => 'EncargadoCampus'], function
 	Route::resource('asignaturas', 'AsignaturasController');
 	Route::resource('salas', 'SalasController');
 	Route::resource('cursos', 'CursosController');
-	Route::resource('horario', 'HorariosController');
+	Route::resource('horarios', 'HorariosController');
 	Route::resource('docente', 'DocenteController');
+	Route::resource('inicio', 'InicioController');
 	Route::resource('funcionario', 'FuncionarioController');
 
 });

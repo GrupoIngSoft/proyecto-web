@@ -4,33 +4,16 @@
 						  </div>
 						<div class="form-group">
 						{!! Form::label('sala_id','Sala donde se impartirá el Curso') !!}
-						  {!! Form::select('sala_id', $salas, null, array('class' => 'form-control')) !!}
+						  {!! Form::select('sala_id', $sala, null, array('class' => 'form-control')) !!}
 						  </div>
 						  <div class="form-group">
 						{!! Form::label('periodo_id','Bloque') !!}
 						  {!! Form::select('periodo_id', $periodo, null, array('class' => 'form-control')) !!}
 						  </div>
 						  <div class="form-group">
-						{!! Form::label('periodo_id','Inicio') !!}
-						  {!! Form::select('periodo_id', $periodo, null, array('class' => 'form-control')) !!}
-						  </div>
+						
 						  <div class="form-group">
-						{!! Form::label('periodo_id','Fin') !!}
-						  {!! Form::select('periodo_id', $periodo, null, array('class' => 'form-control')) !!}
+						{!! Form::label('curso_id','Semestre en que se Imparte') !!}
+						  {!! Form::select('curso_id', $curso, null, array('class' => 'form-control')) !!}
 						  </div>
-						  <div class="form-group">
-						{!! Form::label('cursos_id','Nombre Asignatura') !!}
-						  {!! Form::select('cursos_id', $cursos, $asignaturas, array('class' => 'form-control')) !!}
-						  </div>
-						  <div class="form-group">
-						{!! Form::label('cursos_id','Codigo Asignatura') !!}
-						  {!! Form::select('cursos_id', $cursos, $asignaturas, array('class' => 'form-control')) !!}
-						  </div>
-						  <div class="form-group">
-						{!! Form::label('cursos_id','Semestre Asignatura') !!}
-						  {!! Form::select('cursos_id', $cursos, $asignaturas, array('class' => 'form-control')) !!}
-						  </div>
-						  <div class="form-group">
-						{!! Form::label('cursos_id','Año Asignatura') !!}
-						  {!! Form::select('cursos_id', $cursos, $asignaturas, array('class' => 'form-control')) !!}
-						  </div>
+						

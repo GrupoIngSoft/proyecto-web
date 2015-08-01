@@ -10,7 +10,7 @@
 
 				<div class="panel-body">
 					<table class="table table-striped">
-						{!! Form::model($asignaturas, ['route'=>['ecampus.asignaturas.update', $asignatura->id], 'method'=>'PUT']) !!}
+						{!! Form::model($asignaturas, ['route'=>['ecampus.asignaturas.update', $asignaturas->id], 'method'=>'PUT']) !!}
 						@include('ecampus.asignaturas.partials.campos')
 						  <button type="submit" class="btn btn-info">Actualizar Asignatura</button>
 						{!! Form::close() !!}

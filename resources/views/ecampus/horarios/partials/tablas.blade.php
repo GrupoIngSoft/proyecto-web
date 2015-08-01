@@ -15,14 +15,14 @@
 						@foreach($horarios as $horarios)
 							<td>{{ $horarios->id }}</td>
 							<td>{{ $horarios->fecha }}</td>
-							<td>{{ $horarios->salas->nombre }}</td>
+							<td>{{ $horarios->sala->nombre }}</td>
 							<td>{{ $horarios->periodo->bloque }}</td>
 							<td>{{ $horarios->periodo->inicio }}</td>
 							<td>{{ $horarios->periodo->fin }}</td>
-							<td>{{ $horarios->cursos->asignaturas->nombre }}</td>
-							<td>{{ $horarios->cursos->asignaturas->codigo }}</td>
-							<td>{{ $horarios->cursos->semestre }}</td>
-							<td>{{ $horarios->cursos->anio }}</td>
+							<td>{{ $horarios->curso->asignatura->nombre }}</td>
+							<td>{{ $horarios->curso->asignatura->codigo }}</td>
+							<td>{{ $horarios->curso->semestre }}</td>
+							<td>{{ $horarios->curso->anio }}</td>
 							<td>
 								<a href="{{ route('ecampus.horarios.edit', $horarios->id) }}">Editar</a>
 							</td>
