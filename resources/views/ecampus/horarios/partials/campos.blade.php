@@ -1,6 +1,6 @@
 						 <div class="form-group">
 						    {!! Form::label('fecha','Fecha') !!}
-						    {!! Form::text('fecha', null, ['class'=>'form-control', 'placeholder'=>'Ingrese Fecha']) !!}
+						    {!! Form::text('fecha', null, ['class'=>'form-control', 'placeholder'=>'Ingrese Fecha con Formato dd-mm-aaaa']) !!}
 						  </div>
 						<div class="form-group">
 						{!! Form::label('sala_id','Sala donde se impartirá el Curso') !!}
