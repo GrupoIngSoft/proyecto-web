@@ -5,7 +5,7 @@ class AdministradorMiddleware {
  public function handle($request, Closure $next)
   {
     $user=Auth::user();
-    if(is_null($user->roles()->whereNombre('Administrador')->first()))
+    if(is_null($user->roles()->whereNombre('ADMINISTRADOR')->first()))
       return redirect()->route('auth.login');
     return $next($request);
   }

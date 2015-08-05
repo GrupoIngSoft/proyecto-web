@@ -2,15 +2,10 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\Docente;
-use App\Models\Sala;
-use App\Models\Periodo;
-use App\Models\Horario;
-use App\Models\Curso;
-use App\Models\Campus;
+
 use Illuminate\Http\Request;
 
-class ClasesController extends Controller {
+class InicioController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -19,8 +14,7 @@ class ClasesController extends Controller {
 	 */
 	public function index()
 	{
-		$horarios = Horario::paginate();
-		return view('docente.clases.index', compact('horarios'));
+		return view('docente.inicio');
 	}
 
 	/**

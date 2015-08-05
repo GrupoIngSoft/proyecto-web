@@ -4,7 +4,7 @@
 					<div class="panel-heading">Menu</div>
 							<ul>
 							  <li><a href="{{ route('docente.inicio.index') }}">Inicio</a></li>
-							 
+							  <li><a href="{{ route('docente.clases.index') }}">Clases Asignadas</a></li>							 
 					</div>
 				</div>
 	</div>

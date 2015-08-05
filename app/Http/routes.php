@@ -28,8 +28,8 @@ Route::get('/',['as'=>'home','middleware'=>['auth','redir'],function(){
 	return 'bienvenido';
 }]);
 
-//Route::group(['middleware' => ['auth','admin'], function()
-//{
+Route::group(['middleware' => ['auth','admin']], function(){
+
 	Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function(){
 
 		Route::resource('campus', 'CampusController');
@@ -49,7 +49,7 @@ Route::get('/',['as'=>'home','middleware'=>['auth','redir'],function(){
 		Route::resource('inicio', 'InicioController');
 	
 	});
-//}]);
+});
 
 Route::group(['prefix' => 'ecampus', 'namespace' => 'EncargadoCampus'], function(){
 
@@ -66,6 +66,7 @@ Route::group(['prefix' => 'ecampus', 'namespace' => 'EncargadoCampus'], function
 
 Route::group(['prefix' => 'docente', 'namespace' => 'Docente'], function(){
 
+	Route::resource('inicio', 'InicioController');
 	Route::resource('clases', 'ClasesController');
 
 });

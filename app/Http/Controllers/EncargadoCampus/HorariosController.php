@@ -7,6 +7,7 @@ use App\Models\Periodo;
 use App\Models\Sala;
 use App\Models\Horario;
 use App\Models\Asignatura;
+use App\Models\Docente;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Session;
@@ -21,7 +22,9 @@ class HorariosController extends Controller {
 	 */
 	public function index()
 	{
-		$horarios = Horario::paginate();
+		$date = Carbon::now();
+		$date = $date->format('d-m-Y');
+		$horarios = Horario::paginate($date);
 		return view('ecampus.horarios.index', compact('horarios'));
 	}
 
@@ -36,10 +39,12 @@ class HorariosController extends Controller {
 		$periodo = Periodo::lists('bloque','id');
 		$curso = Curso::lists('semestre','id');
 		$asignatura = Asignatura::lists('nombre','id');
+		$docente = Docente::lists('nombres', 'id');
 		return view('ecampus.horarios.create')
 				->with('sala',$sala)
 				->with('periodo',$periodo)
 				->with('curso',$curso)
+				->with('docente',$docente)
 				->with('asignatura',$asignatura);
 	}
 
@@ -78,11 +83,13 @@ class HorariosController extends Controller {
 		$sala = Sala::lists('nombre','id');
 		$periodo= Periodo::lists('bloque','id');
 		$curso = Curso::lists('semestre','id');
+		$docente = Docente::lists('nombres', 'id');
 		$asignatura = Asignatura::lists('nombre','id');
 		$horarios = Horario::findOrFail($id);
 		return view('ecampus.horarios.edit', compact('horarios'))
 				->with('sala',$sala)
 				->with('periodo',$periodo)
+				->with('docente',$docente)
 				->with('curso',$curso)
 				->with('asignatura',$asignatura);
 	}
@@ -111,7 +118,7 @@ class HorariosController extends Controller {
 	{
 		$horarios = Horario::findOrFail($id);
 		$horarios->delete();
-		$message='El horario con fecha'.$horarios->fecha . ' fue eliminado del registro';
+		$message='El horario con fecha ' . $horarios->fecha . ' fue eliminado del registro';
 		Session::flash('message', $message);
 		return redirect()->route('ecampus.horarios.index');
 	}

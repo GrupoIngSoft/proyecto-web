@@ -14,7 +14,8 @@ class InicioController extends Controller {
 	 */
 	public function index()
 	{
-		return view('ecampus.inicio');	}
+		return view('ecampus.inicio');	
+	}
 
 	/**
 	 * Show the form for creating a new resource.

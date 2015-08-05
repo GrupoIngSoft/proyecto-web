@@ -6,6 +6,7 @@ class Horario extends Model {
 
     protected $table = 'horarios';
     protected $fillable = ['fecha', 'sala_id', 'periodo_id', 'curso_id'];
+    protected $date =['fecha'];
 
     public function Periodo()
     {
