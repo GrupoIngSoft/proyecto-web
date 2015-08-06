@@ -71,7 +71,7 @@ Route::group(['prefix' => 'docente', 'namespace' => 'Docente'], function(){
 
 });
 
-/*Route::group(['prefix' => 'estudiante', 'namespace' => 'Estudiante'], function(){
+Route::group(['prefix' => 'estudiante', 'namespace' => 'Estudiante'], function(){
 
 
 

@@ -8,20 +8,16 @@ class UsuarioTableSeeder extends Seeder {
 
     public function run()
 	{
-		$faker= Faker::create();
 		
 		for($i=0; $i<30; $i++)
 		{
-          \DB::table('roles')-> insert (array(
-             'nombre'       =>$faker->name,
-             'descripcion'  =>$faker->text,
-             'type'         =>'usuarios',
+          \DB::table('usuarios')-> insert (array(
+             'rut'       =>'182782890',
+             'email'  =>'mapakn69@gmail.com',
+             'nombres'         =>'Diego Ignacio',
+             'apellidos'         =>'Esparza Perez',
              	));		
-		 \DB::table('roles_usuarios')->insert(array(
-                'rol_id'      =>$id, 
-                'rut'         => $faker->number,
-                'descripcion' => $faker->text,
-                ));
+		 
 		}
 	}
 

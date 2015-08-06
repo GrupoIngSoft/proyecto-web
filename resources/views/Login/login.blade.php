@@ -48,7 +48,7 @@ $(document).ready (function () { $('#rut').Rut({ on_error: function(){ alert('Ru
                       @endif
 				    {!! Form::open(['route' => 'auth.doLogin', 'method' => 'POST']) !!}
 
-						<input type="text" name="rut"   placeholder="Ingrese Rut" >
+						<input type="text" name="rut"   placeholder="Ingrese Rut sin puntos ni guion" >
 						<input type="password" name="password"  placeholder="Ingrese Contraseña Dirdoc">
                        
 						<div class="submit" >
